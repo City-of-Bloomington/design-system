@@ -1,7 +1,7 @@
 <template>
   <component :is="type">
     <div :class="[{ contained: contained }]">
-      <a v-if="logo" :href="logo.url" :title="logo.imageAlt" @click.prevent>
+      <a v-if="logo" :href="logo.url" :title="logo.imageAlt">
         <img v-if="logo" :src="logo.image" :alt="logo.imageAlt" />
 
         <div>
@@ -15,7 +15,6 @@
         :href="application.url"
         v-html="application.name"
         :title="application.name"
-        @click.prevent
       ></a>
 
       <nav v-if="navItems" role="navigation" aria-labelledby="navigation">
@@ -27,7 +26,6 @@
               :disabled="item.disabled"
               :title="item.name"
               v-html="item.name"
-              @click.prevent
             ></a>
           </li>
         </ul>
@@ -44,7 +42,6 @@
               :disabled="item.disabled"
               :title="item.name"
               v-html="item.name"
-              @click.prevent
             ></a>
           </li>
         </ul>
