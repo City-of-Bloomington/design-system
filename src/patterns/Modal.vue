@@ -11,9 +11,8 @@
             <div class="modal-body"><slot name="body" /></div>
 
             <div class="modal-footer">
-              <fn1-button v-show="true" @click.stop>Cancel</fn1-button>
-              <fn1-button v-show="true" @click.native="destroyModal">Confirm</fn1-button>
-              <!-- <slot name="footerBtnConfirm"  /> -->
+              <fn1-button @click.native="cancelModal">Cancel</fn1-button>
+              <fn1-button @click.native="confirmModal">Confirm</fn1-button>
             </div>
           </div>
         </div>
@@ -68,8 +67,11 @@ export default {
     displayModal() {
       this.showModal = true
     },
-    destroyModal() {
-      this.showModal = false
+    cancelModal() {
+      // this.showModal = false
+    },
+    confirmModal() {
+      // this.showModal = false
     },
   },
 }
