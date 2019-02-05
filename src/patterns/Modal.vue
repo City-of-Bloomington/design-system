@@ -20,7 +20,7 @@
       </div>
     </transition>
 
-    <fn1-button @click.native="displayModal">Show Modal</fn1-button>
+    <fn1-button @click.native="displayModal" v-html="launchButtonText"></fn1-button>
   </component>
 </template>
 
@@ -50,6 +50,10 @@ export default {
     title: {
       type: String,
       default: null,
+    },
+    launchButtonText: {
+      type: String,
+      defaut: "Launch Modal",
     },
   },
   data() {
@@ -98,17 +102,14 @@ body.showing-modal {
 }
 
 .modal-wrapper {
-  position: absolute;
   z-index: 10000;
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   font-weight: $weight-normal;
   font-family: $font-text;
   font-size: $size-m;
-  margin: auto;
-  top: 25%;
-  left: 50%;
-  transform: translate(-25%, -50%);
   width: auto;
 
   > div {
@@ -201,7 +202,7 @@ body.showing-modal {
 
 <docs>
   ```jsx
-  <fn1-modal title="Modal Title Here">
+  <fn1-modal title="Modal Title Here" launchButtonText="Launch Modal">
     <p slot="body">This is where the Modal content lives.</p>
     <p slot="body">If this is an emergency, please dial 911.</p>
     <fn1-button slot="footerBtnConfirm">I Understand</fn1-button>
