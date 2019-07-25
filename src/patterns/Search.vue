@@ -1,5 +1,6 @@
 <template>
   <component :is="wrapper" :class="['field-group']">
+    <label :for="id" v-if="label">{{ label }}</label>
     <input
       :id="id"
       :disabled="disabled"
@@ -47,6 +48,13 @@ export default {
      * The placeholder value for the search input.
      */
     placeholder: {
+      type: String,
+      default: null,
+    },
+    /**
+     * The label of the text input.
+     */
+    label: {
       type: String,
       default: null,
     },
@@ -111,7 +119,7 @@ export default {
   },
   methods: {
     onInput(value) {
-      this.$emit("change", value)
+      this.$emit("input", value)
     },
     onFocus(value) {
       this.$emit("focus", value)
