@@ -2,7 +2,9 @@
   <component :is="wrapper" :class="['field-group']">
     <input
       :id="id"
+      :disabled="disabled"
       :type="type"
+      :value="value"
       :name="name"
       :class="state"
       :placeholder="placeholder"
@@ -32,6 +34,14 @@ export default {
       validator: value => {
         return value.match(/(search)/)
       },
+    },
+    /**
+     * Text value of the text input.
+     * @model
+     */
+    value: {
+      type: String,
+      default: null,
     },
     /**
      * The placeholder value for the search input.
@@ -78,6 +88,14 @@ export default {
     id: {
       type: String,
       default: null,
+    },
+    /**
+     * Whether the form input field is disabled or not.
+     * `true, false`
+     */
+    disabled: {
+      type: Boolean,
+      default: false,
     },
     /**
      * Manually trigger various states of the input.
@@ -146,7 +164,11 @@ export default {
 <docs>
   ```jsx
   <div>
-    <fn1-search buttonValue="Go" placeholder="Search for it" name="search" id="search"/>
+    <fn1-search
+      buttonValue="Go"
+      placeholder="Search for it"
+      name="search"
+      id="search" />
   </div>
   ```
 </docs>
